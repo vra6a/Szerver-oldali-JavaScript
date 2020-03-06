@@ -145,17 +145,6 @@ table {
 	border: 1px solid #0D0D0E;
 }
 
-.goto-festival-button {
-    background-color: #0D0D0E;
-    width: 20%;
-    color: white;
-    border: none;
-    padding: 5px;
-	font-family: 'Montserrat';
-	font-weight: medium;
-	font-size: 100%;
-}
-
 .table {
 	margin-top: 70px;
 	width: 100%;
@@ -192,9 +181,9 @@ img {
     margin: auto;
     margin-top: 15px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "check" "options" "delete";
+    grid-template-areas: "options" "delete";
 }
 
 @media screen and (max-device-width: 768px) {
