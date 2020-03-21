@@ -35,6 +35,7 @@ module.exports = function (app) {
         getFestivalMW(objRepo),
         saveFestivalMW(objRepo),
         renderMW(objRepo, 'szerk_fesztival'));
+        //az uj_fesztival es a szerk_fesztival ugyan az az oldal, mindössze 1 sorban tér el
 
     app.get('/festivals/delete/:festivalid',
         authMW(objRepo),
@@ -61,6 +62,7 @@ module.exports = function (app) {
         getTicketMW(objRepo),
         saveTicketMW(objRepo),
         renderMW(objRepo, 'szerk_jegy'));
+        //az uj_jegy es a szerk_jegy ugyan az az oldal, mindössze 1 sorban tér el
 
     app.get('/tickets/:festivalid/delete/:ticketid',
         authMW(objRepo),
