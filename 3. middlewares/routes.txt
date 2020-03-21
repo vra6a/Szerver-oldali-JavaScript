@@ -1,0 +1,29 @@
+routing
+
+GET     /login                                  - login.html
+POST    /login                                  - password auth
+
+
+
+GET     /festivals                              - index.html
+
+GET     /festivals/new                          - uj_fesztival.html (new)
+POST    /festivals/new                          - uj_fesztival.html (new)
+
+GET     /festivals/edit/:festivalid             - editfestival.html (edit)
+POST    /festivals/edit/:festivalid             - editfestival.html (edit)
+
+GET     /festivals/delete/:festivalid           - torles
+
+
+
+GET     /tickets/:festivalid                    - jegyek.html
+
+GET     /tickets/:festivalid/new                - uj_jegy.html
+POST    /tickets/:festivalid/new                - uj_jegy.html
+
+GET     /tickets/:festivalid/edit/:ticketid     - editjegy.html
+POST    /tickets/:festivalid/edit/:ticketid     - editjegy.html
+
+GET     /tickets/:festivalid/delete/:ticketid     - editjegy.html
+POST    /tickets/:festivalid/delete/:ticketid     - editjegy.html
