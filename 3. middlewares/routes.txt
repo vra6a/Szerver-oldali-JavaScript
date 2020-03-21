@@ -1,11 +1,16 @@
 routing
 
 GET     /login                                  - login.html
+    renderMW(login.html)
+
 POST    /login                                  - password auth
+    checkPassMW(megnézi a jelszot, ha jo akkor session, ha nem akkor ujra proba)
 
 
-
-GET     /festivals                              - index.html
+GET     /festivals                              - index.html (lista)
+    authMW()
+    getFestivalsMW
+    renderMW(index.html)
 
 GET     /festivals/new                          - uj_fesztival.html (new)
 POST    /festivals/new                          - uj_fesztival.html (new)
@@ -17,13 +22,14 @@ GET     /festivals/delete/:festivalid           - torles
 
 
 
-GET     /tickets/:festivalid                    - jegyek.html
+GET     /tickets/:festivalid                    - jegyek.html (lista)
 
-GET     /tickets/:festivalid/new                - uj_jegy.html
-POST    /tickets/:festivalid/new                - uj_jegy.html
+GET     /tickets/:festivalid/new                - uj_jegy.html (new)
+POST    /tickets/:festivalid/new                - uj_jegy.html (new)
 
-GET     /tickets/:festivalid/edit/:ticketid     - editjegy.html
-POST    /tickets/:festivalid/edit/:ticketid     - editjegy.html
+GET     /tickets/:festivalid/edit/:ticketid     - editjegy.html (edit)
+POST    /tickets/:festivalid/edit/:ticketid     - editjegy.html (edit)
 
-GET     /tickets/:festivalid/delete/:ticketid     - editjegy.html
-POST    /tickets/:festivalid/delete/:ticketid     - editjegy.html
+GET     /tickets/:festivalid/delete/:ticketid   - torles 
+
+vargahome

@@ -39,7 +39,7 @@ module.exports = function (app) {
     app.get('/festivals/delete/:festivalid',
         authMW(objRepo),
         getFestivalMW(objRepo),
-        deleteFestivalMW(objRepo, ));
+        deleteFestivalMW(objRepo));
 
 
 
