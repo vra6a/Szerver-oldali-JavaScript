@@ -1,0 +1,43 @@
+<%- include('header') -%>
+<%-include('navbar') -%>
+
+	<div class="landing-image">
+		<div class="hero-text">
+			FESTICKET
+		</div>
+	</div>
+
+	<section class="box">
+		<section id="festival" class="wrapper">
+			<div class="cim">Fesztiválok</div>
+			<div class="table">
+				<table cellpadding="0" cellspacing="0">
+					<tr class="table-header-line">
+						<th width="30%">NÉV</th>
+						<th width="20%">DÁTUM</th>
+						<th width="20%">HELYSZÍN</th>
+						<th width="30%">JEGYEK</th >
+					</tr>
+					<% festivalList.forEach(function(festival) { %>
+					<tr>
+						<th>
+							<%= festival.nev  %>
+						</th>
+						<th>
+							<%= festival.datum  %>
+						</th>
+						<th>
+							<%= festival.helyszin  %>
+						</th>
+						<th>
+							<a class="goto-festival-button" href="/tickets/<%= festival._id %>">Megnézem</a>
+						</th >
+						
+					</tr>
+					<% }); %>
+				</table>
+			</div>
+		</section>
+	</section>
+
+<%-include('footer') -%>

@@ -1,0 +1,37 @@
+<%- include('header') -%>
+<%-include('navbar') -%>
+
+    <section class="box">
+        <section id="festival" class="wrapper">
+            <div class="cim"> <%= festival.nev %> jegyek </div>
+            <div class="table">
+                <table cellpadding="0" cellspacing="0">
+                    <tr class="table-header-line">
+                        <th width="30%">JEGYTÍPUS</th>
+                        <th width="20%">ÁR</th>
+                        <th width="20%">ÉRVÉNYESSÉG</th>
+                        <th width="30%"></th >
+                    </tr>
+                    <% jegyList.forEach(function(ticket) { %>
+                    <tr>
+                        <th>
+                            <%= ticket.tipus %>
+                        </th>
+                        <th>
+                            <%= ticket.ar %>
+                        </th>
+                        <th>
+                            <%= ticket.starterv %>
+                             <br>
+                            <%= ticket.enderv %>
+                        </th>
+                        <th>
+                            <div class="check"><a class="goto-festival-button" href="/festivals">Kosárba</a></div>
+                        </th >
+                    </tr>
+                    <% }); %>
+                </table>
+            </div>
+        </section>
+    </section>
+<%-include('footer') -%>
