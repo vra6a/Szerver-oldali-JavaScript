@@ -1,0 +1,274 @@
+body, html {
+	height: 100%;
+	margin: 0;
+	font-family: 'Ubuntu', sans-serif;
+	line-height: 180%;
+	color: #666;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.line-burger {
+	display: none;
+	cursor: pointer;
+}
+
+.line-burger div {
+	width: 25px;
+	height: 2px;
+	background-color: white;
+	margin: 5px;
+	transition: all 0.3s ease;
+}
+
+nav	{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 18vh;
+	background-color: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transition: .5s;
+	z-index: 1;
+}
+.logo {
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-family: 'Montserrat', bold;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: space-around;
+	width: 30%
+}
+
+.nav-button {
+	color: white;
+	background: transparent;
+	border: none;
+	margin: auto;
+	display: block;
+	font-size: 25px;
+	font-weight: medium;
+	outline: none;
+	position: relative;
+	transition: 0.3s;
+	padding: 10px;
+}
+.nav-button:before {
+	content: '';
+	border-bottom: 3px solid white;
+	padding: 10 10px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: 0 auto;
+	width: 0;
+	transition: 0.3s;
+}
+.nav-button:hover:before {
+	width: 100%;
+	padding: 0;
+}
+
+.sticky {
+	background-color: #0D0D0E;
+	min-height: 8vh;
+	z-index: 2;
+	font-size: 20px;
+	font-weight: medium;
+}
+
+.landing-image {
+    background: url("../images/lp_background.png");
+	min-height: 100%;
+	position: relative;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	scroll-snap-align: start;
+}
+
+.hero-text {
+	position: absolute;
+    color: #f9f3ec;
+    font-family: 'Montserrat';
+    font-size: 100px;
+    font-weight: bold;
+	top: 80%;
+	width: 100%;
+	letter-spacing: 40px;
+	text-shadow: 0 0 30px #000;
+}
+
+.box	{
+	overflow: auto;
+	background-color: #EFEAE9;
+	min-height: 100%;
+}
+
+.wrapper {
+	width: 70%;
+	background: transparent;
+	margin: 20vh auto;
+}
+
+.cim {
+	font-family: 'Montserrat';
+	font-size: 50px;
+	font-weight: bold;
+	letter-spacing: 6px;
+	color: #0D0D0E;
+}
+table {
+	width: 100%;
+	font-size: 130%;
+	color: #0D0D0E;
+	border: 1px solid #0D0D0E;
+}
+
+.table {
+	margin-top: 70px;
+	width: 100%;
+	background-color: #E1E1E1;
+}
+
+.table-header-line {
+	background-color: #0D0D0E;
+	color: white;
+	font-size: 130%;
+}
+th {
+	padding: 10px;
+	border: 1px solid #0D0D0E;
+}
+
+.add-button {
+    background-color: #0D0D0E;
+    margin: 3% auto;
+	padding: 10px;
+	width: 40%;
+	color: white;
+	border: none;
+	font-family: 'Montserrat';
+	font-weight: bold;
+	font-size: 130%;
+}
+
+img {
+    margin: 0px 0px 10px 10px;
+}
+
+.ticket-container {
+    margin: auto;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "options" "delete";
+}
+
+@media screen and (max-device-width: 768px) {
+
+	.header-1 {
+		font-size: 50px;
+		letter-spacing: 15px;
+	}
+
+	.nav-links {
+		position: absolute;
+		right: 0px;
+		height: 25vh;
+		padding-top: 30vh;
+		background-color: #0D0D0E;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 40%;
+		transform: translateX(100%);
+		transition: transform .5s ease-in;
+	}
+	
+	.nav-button {
+		font-size: 50px;
+		padding: 25px;
+	}
+
+	.nav-button:before {
+		border-bottom: 4px solid white;
+	}
+
+	.hero-text {
+		font-size: 100px;
+	}
+
+	.line-burger {
+		display: block;
+		margin-right: 6%;
+	}
+
+	.logo {
+		letter-spacing: 10px;
+		font-size: 40px;
+	}
+
+	.line-burger div {
+		width: 80px;
+		height: 5px;
+		margin: 20px;
+	}
+
+	.button {
+		color: white;
+		text-decoration: none;
+		letter-spacing: 3px;
+		font-size: 40px;
+		font-weight: medium;
+		transition: .3s;
+	}
+}
+
+.nav-active {
+	transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+	from {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.toggle .line1 {
+	transform: rotate(-45deg) translate(6px,35px);
+}
+
+.toggle .line2 {
+	opacity: 0;
+}
+
+.toggle .line3 {
+	transform: rotate(45deg) translate(0px,-40px);
+}

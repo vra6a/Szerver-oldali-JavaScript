@@ -3,7 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>Festicket</title>
-	<link rel="stylesheet" type="text/css" href="source/css/index.css">
+	<% if(typeof csstype!=='undefined' && csstype=="index"){ %>
+		<link rel="stylesheet" type="text/css" href="source/css/index.css">
+	<% }else if(typeof csstype!=='undefined' && csstype=="login") { %>
+		<link rel="stylesheet" type="text/css" href="source/css/login.css">
+	<% } %>
+
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>

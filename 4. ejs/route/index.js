@@ -16,6 +16,10 @@ const saveTicketMW = require('../middleware/ticket/saveTicketMW');
 module.exports = function (app) {
     const objRepo = {};
 
+    app.get('/',
+        getFestivalsMW(objRepo),
+        renderMW(objRepo, 'index'));
+
     app.use('/login',
         checkPwMW(objRepo),
         renderMW(objRepo, 'login'));
