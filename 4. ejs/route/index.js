@@ -16,18 +16,6 @@ const saveTicketMW = require('../middleware/ticket/saveTicketMW');
 module.exports = function (app) {
     const objRepo = {};
 
-    app.get('/',
-        getFestivalsMW(objRepo),
-        renderMW(objRepo, 'index'));
-
-    app.use('/login',
-        checkPwMW(objRepo),
-        renderMW(objRepo, 'login'));
-
-    app.get('/festivals',
-        getFestivalsMW(objRepo),
-        renderMW(objRepo, 'index'));
-
     app.get('/festivals/admin',
         authMW(objRepo),
         getFestivalsMW(objRepo),
@@ -49,13 +37,6 @@ module.exports = function (app) {
         authMW(objRepo),
         getFestivalMW(objRepo),
         deleteFestivalMW(objRepo));
-
-
-
-    app.get('/tickets/:festivalid',
-        getFestivalMW(objRepo),
-        getTicketsMW(objRepo),
-        renderMW(objRepo, 'jegyek'));
 
     app.get('/tickets/:festivalid/admin',
         authMW(objRepo),
@@ -83,4 +64,21 @@ module.exports = function (app) {
         getTicketMW(objRepo),
         deleleteTicketMW(objRepo),
         renderMW(objRepo));
+
+    app.get('/tickets/:festivalid',
+        getFestivalMW(objRepo),
+        getTicketsMW(objRepo),
+        renderMW(objRepo, 'jegyek'));
+
+    app.use('/login',
+        checkPwMW(objRepo),
+        renderMW(objRepo, 'login'));
+
+    app.get('/festivals',
+        getFestivalsMW(objRepo),
+        renderMW(objRepo, 'index'));
+
+    app.get('/',
+        getFestivalsMW(objRepo),
+        renderMW(objRepo, 'index'));
 };
