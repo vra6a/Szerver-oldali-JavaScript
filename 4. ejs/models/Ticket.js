@@ -4,8 +4,7 @@ const db = require('../config/db');
 const Ticket = db.model('Ticket', {
     tipus: String,
     ar: Number,
-    starterv: String,
-    enderv: String,
+    valid: String,
     _fest: {
         type: Schema.Types.ObjectId,
         ref: 'Festival'

@@ -3,19 +3,21 @@
 
     <section class="box">
         <section class="wrapper">
-            <div class="cim">Új Jegy Felvétel a <%= festival._id %> fesztiválhoz</div>
-            <div class="grid-container-inputs">
-                <div class="name">név:</div>
-                <div class="nameinput"><input type="text"></div>
-                <div class="price">ár:</div>
-                <div class="priceinput"><input type="text"></div>
-                <div class="valid">érvényesség:</div>
-                <div class="validinput"><input type="text"></div>
-            </div>
-            <div class="grid-container-buttons">
-                <div class="sign-in"><a class="button" href="/tickets/<%= festival._id/admin">Felvétel</a></div>
-                <div class="back"><a class="button" href="/tickets/<%= festival._id/admin">Vissza</a></div>
+            <div class="cim">Új Jegy Felvétel</div>
+            <form method="post" action="/tickets/<%= festivalid %>/new">
+                <div class="grid-container-inputs">
+                    <div class="name">név:</div>
+                    <div class="nameinput"><input type="text" name="name"></div>
+                    <div class="price">ár:</div>
+                    <div class="priceinput"><input type="number" name="price"></div>
+                    <div class="valid">érvényesség:</div>
+                    <div class="validinput"><input type="text" name="valid"></div>
                 </div>
+                <div class="grid-container-buttons">
+                    <div class="sign-in"><button class="button">Felvétel</button></div>
+                    <div class="back"><a class="button" href="/tickets/<%= festivalid %>/admin">Vissza</a></div>
+                </div>
+            </form>
         </section>
     </section>
 <%-include('footer') -%>

@@ -1,21 +1,23 @@
-<%- include('header') -%>
+<%- include('header', csstype="uj_fest") -%>
 <%-include('logged_in_navbar') -%>
 
     <section class="box">
         <section class="wrapper">
             <div class="cim">Új Fesztivál Felvétel</div>
-            <div class="grid-container-inputs">
-                <div class="name">név:</div>
-                <div class="nameinput"><input type="text"></div>
-                <div class="date">dátum:</div>
-                <div class="dateinput"><input type="text"></div>
-                <div class="place">helyszín:</div>
-                <div class="placeinput"><input type="text"></div>
-            </div>
-            <div class="grid-container-buttons">
-                <div class="sign-in"><a class="button" href="/festivals/admin">Felvétel</a></div>
-                <div class="back"><a class="button" href="/festivals/admin">Vissza</a></div>
+            <form action="/festivals/new" method="post">
+                <div class="grid-container-inputs">
+                    <div class="name">név:</div>
+                    <div class="nameinput"><input name="nev" type="text"></div>
+                    <div class="date">dátum:</div>
+                    <div class="dateinput"><input name="datum" type="text"></div>
+                    <div class="place">helyszín:</div>
+                    <div class="placeinput"><input name="helyszin" type="text"></div>
                 </div>
+                <div class="grid-container-buttons">
+                    <div class="sign-in"><button role="button" class="button">Felvétel</button></div>
+                    <div class="back"><a class="button" href="/">Vissza</a></div>
+                    </div>
+            </form>
         </section>
     </section>
 <%-include('footer') -%>

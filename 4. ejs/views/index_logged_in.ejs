@@ -1,4 +1,4 @@
-<%- include('header') -%>
+<%- include('header', csstype="index_admin") -%>
 <%-include('logged_in_navbar') -%>
 
 	<div class="landing-image">
@@ -19,7 +19,7 @@
 						<th width="20%">HELYSZÍN</th>
 						<th width="30%">JEGYEK</th >
 					</tr>
-					<% festivalList.forEach(function(festival) { %>
+					<% festivals.forEach(function(festival) { %>
 					<tr>
 						<th>
 							<%= festival.nev  %>
@@ -32,15 +32,19 @@
 						</th>
 						<th>
 							<div class="ticket-container" >
-								<div class="options"><a href="/tickets/<%= festival._id %>/admin"> <img src="source/images/gear.png" height="30px" width="30px"></a></div>
-								<div class="delete"><a href=""><img src="source/images/delete.png" height="30px" width="30px"></a></div>
+								<div class="options"><a class="button" href="/festivals/edit/<%=festival._id %>"> <img src="/source/images/gear.png" height="30px" width="30px"></a></div>
+								<div class="delete"><a class="button" href="/festivals/delete/<%=festival._id %>"> <img src="/source/images/delete.png" height="30px" width="30px"></a></div>
+								<a class="goto-festival-button" href="/tickets/<%= festival._id %>">Megnézem</a>
 							</div>
 						</th >
 					</tr>
+					<% });%>
 					
 				</table>
 			</div>
-			<div class="add-button"><a  href="/festivals/new">Új Fesztivál hozzáadása</a></div>
+				<form action="/festivals/new" method="post">
+					<div class="add-button"><button class="add-button" role="button">Új Fesztivál hozzáadása</button></div>
+				</form>
 		</section>
 	</section>
 <%-include('footer') -%>

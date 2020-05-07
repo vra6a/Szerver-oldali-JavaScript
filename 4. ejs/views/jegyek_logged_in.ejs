@@ -12,30 +12,28 @@
                         <th width="20%">ÉRVÉNYESSÉG</th>
                         <th width="30%"></th >
                     </tr>
-                    <% jegyList.forEach(function(ticket) { %>
-                    <tr>
-                        <th>
-                            <%= ticket.tipus %>
-                        </th>
-                        <th>
-                            <%= ticket.ar %>
-                        </th>
-                        <th>
-                            <%= ticket.starterv %>
-                                <br>
-                            <%= ticket.enderv %>
-                        </th>
-                        <th>
-                            <div class="ticket-container" >
-                                <div class="options"><a href="/tickets/<%= festival._id %>/edit/<%= ticket._id %>"> <img src="source/images/gear.png" height="30px" width="30px"></a></div>
-                                <div class="delete"><a href="/tickets/<%= festival._id %>/delete/<%= ticket._id %>"><img src="source/images/delete.png" height="30px" width="30px"></a></div>
-                            </div>
-                        </th >
-                        
-                    </tr>
+                    <% tickets.forEach(function(ticket) { %>
+                        <tr>
+                            <th>
+                                <%= ticket.tipus %>
+                            </th>
+                            <th>
+                                <%= ticket.ar %>
+                            </th>
+                            <th>
+                                <%= ticket.valid %>
+                            </th>
+                            <th>
+                                <div class="ticket-container" >
+                                    <div class="options"><a href="/tickets/<%= ticket._id %>/edit"> <img src="/source/images/gear.png" height="30px" width="30px"></a></div>
+                                    <div class="delete"><a href="/tickets/<%= ticket._id %>/delete"><img src="/source/images/delete.png" height="30px" width="30px"></a></div>
+                                </div>
+                            </th >
+                        </tr>
+                    <% });%>
                 </table>
             </div>
-            <div class="add-button"><a  href="/tickets/<%= festival._id %>/new">Új Jegy hozzáadása</a></div>
+            <div class="add-button"><a  href="/tickets/<%= festivalid %>/new">Új Jegy hozzáadása</a></div>
         </section>
     </section>
 <%-include('footer') -%>

@@ -1,6 +1,8 @@
 const authMW = require('../middleware/auth/authMW');
 const checkPwMW = require('../middleware/auth/checkPwMW');
+const logoutMW = require('../middleware/auth/logoutMW');
 const renderMW = require('../middleware/renderMW');
+const checkLoggedInMW = require('../middleware/auth/checkLoggedInMW');
 
 const deleteFestivalMW = require('../middleware/festival/deleteFestivalMW');
 const getFestivalsMW = require('../middleware/festival/getFestivalsMW');
@@ -11,42 +13,52 @@ const deleleteTicketMW = require('../middleware/ticket/deleleteTicketMW');
 const getTicketsMW = require('../middleware/ticket/getTicketsMW');
 const getTicketMW = require('../middleware/ticket/getTicketMW');
 const saveTicketMW = require('../middleware/ticket/saveTicketMW');
-
+const FestivalModel = require('../models/festival');
+const TicketModel = require('../models/Ticket');
 
 module.exports = function (app) {
-    const objRepo = {};
-
-    app.get('/festivals/admin',
-        authMW(objRepo),
-        getFestivalsMW(objRepo),
-        renderMW(objRepo, 'index_logged_in'));
+    const objRepo = {FestivalModel: FestivalModel,
+                        TicketModel: TicketModel};
 
     app.use('/festivals/new',
         authMW(objRepo),
-        saveFestivalMW ,
+        saveFestivalMW(objRepo),
         renderMW(objRepo, 'uj_fesztival'));
 
+    app.use('/festivals/delete/:festivalid',
+        authMW(objRepo),
+        deleteFestivalMW(objRepo),
+        renderMW(objRepo, 'index_logged_in'));
+
+    /*
     app.use('/festivals/edit/:festivalid',
         authMW(objRepo),
         getFestivalMW(objRepo),
         saveFestivalMW(objRepo),
         renderMW(objRepo, 'szerk_fesztival'));
         //az uj_fesztival es a szerk_fesztival ugyan az az oldal, mindössze 1 sorban tér el
+*/
 
     app.get('/festivals/delete/:festivalid',
         authMW(objRepo),
         getFestivalMW(objRepo),
         deleteFestivalMW(objRepo));
 
-    app.get('/tickets/:festivalid/admin',
+    app.get('/tickets/:festivalid',
         authMW(objRepo),
-        getFestivalMW(objRepo),
+        (req, res, next) => {
+            res.locals.festivalid = req.params.festivalid;
+            return next();
+        },
         getTicketsMW(objRepo),
         renderMW(objRepo, 'jegyek_logged_in'));
 
     app.use('/tickets/:festivalid/new',
         authMW(objRepo),
-        getFestivalMW(objRepo),
+        (req, res, next) => {
+            res.locals.festivalid = req.params.festivalid;
+            return next();
+        },
         saveTicketMW(objRepo),
         renderMW(objRepo, 'uj_jegy'));
 
@@ -65,20 +77,12 @@ module.exports = function (app) {
         deleleteTicketMW(objRepo),
         renderMW(objRepo));
 
-    app.get('/tickets/:festivalid',
-        getFestivalMW(objRepo),
-        getTicketsMW(objRepo),
-        renderMW(objRepo, 'jegyek'));
-
     app.use('/login',
         checkPwMW(objRepo),
         renderMW(objRepo, 'login'));
 
-    app.get('/festivals',
-        getFestivalsMW(objRepo),
-        renderMW(objRepo, 'index'));
-
     app.get('/',
+        checkLoggedInMW(),
         getFestivalsMW(objRepo),
         renderMW(objRepo, 'index'));
 };

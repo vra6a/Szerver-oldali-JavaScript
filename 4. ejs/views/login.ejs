@@ -2,16 +2,23 @@
 <%-include('navbar') -%>
 
     <section class="box">
+        
         <section class="wrapper">
-            <div class="cim">Bejelentkezés</div>
-            <div class="grid-container-inputs">
-                <div class="pw">jelszó:</div>
-                <div class="pwinput"><input type="password"></div>
-            </div>
-            <div class="grid-container-buttons">
-                <div class="sign-in"><a class="button" href="/festivals/admin">Bejelentkezés</a></div>
-                <div class="back"><a class="button" href="/festivals">Vissza</a></div>
+            <form action="/login" method="post">
+                <div class="cim">Bejelentkezés</div>
+
+                <div class="grid-container-inputs">
+                    <div class="pw">jelszó:</div>
+                    <div class="pwinput">
+                        <input type="password" id="password" name="password" placeholder="asd123">
+                    </div>
                 </div>
+
+                <div class="grid-container-buttons">
+                    <div class="sign-in"><button class="button" role="button">Bejelentkezés</button></div>
+                    <div class="back"><a class="button" href="/festivals">Vissza</a></div>
+                </div>
+            </form>
         </section>
     </section>
 <%-include('footer') -%>

@@ -18,22 +18,32 @@
 						<th width="20%">HELYSZÍN</th>
 						<th width="30%">JEGYEK</th >
 					</tr>
-					<% festivalList.forEach(function(festival) { %>
-					<tr>
-						<th>
-							<%= festival.nev  %>
-						</th>
-						<th>
-							<%= festival.datum  %>
-						</th>
-						<th>
-							<%= festival.helyszin  %>
-						</th>
-						<th>
-							<a class="goto-festival-button" href="/tickets/<%= festival._id %>">Megnézem</a>
-						</th >
-						
-					</tr>
+					<% festivals.forEach(function(festival) { %>
+						<tr>
+							<th>
+								<%= festival.nev  %>
+							</th>
+							<th>
+								<%= festival.datum  %>
+							</th>
+							<th>
+								<%= festival.helyszin  %>
+							</th>
+							<th>
+
+								<% if(!belepve){ %>
+									<a class="goto-festival-button" href="/tickets/<%= festival._id %>">Megnézem</a>
+								<% } else{ %>
+									<div class="ticket-container" >
+										<div class="options"><a class="button" href="/festivals/edit/<%=festival._id %>"> <img src="/source/images/gear.png" height="30px" width="30px"></a></div>
+										<div class="delete"><a class="button" href="/festivals/delete/<%=festival._id %>"> <img src="/source/images/delete.png" height="30px" width="30px"></a></div>
+										<a class="goto-festival-button" href="/tickets/<%= festival._id %>">Megnézem</a>
+									</div>
+								<% } %>
+								
+							</th >
+							
+						</tr>
 					<% }); %>
 				</table>
 			</div>

@@ -119,6 +119,15 @@ nav	{
 	text-shadow: 0 0 30px #000;
 }
 
+.button {
+	background-color: #E1E1E1;
+	border: none;
+	align-content: center;
+	/*padding: 15px 32px; */
+	text-align: center;
+	text-decoration: none;
+}
+
 .box	{
 	overflow: auto;
 	background-color: #EFEAE9;
