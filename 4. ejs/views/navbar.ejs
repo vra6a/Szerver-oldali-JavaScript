@@ -1,8 +1,12 @@
 <nav>
-	<div class="logo"><a href="/festivals">Festicket</a></div>
+	<div class="logo"><a href="/">Festicket</a></div>
 	<ul class="nav-links">
-		<li><a class="nav-button" href="/festivals">Fesztiválok</a></li>
-		<li><a class="nav-button" href="/login">Bejelentkezés</a></li>
+		<li><a class="nav-button" href="/">Fesztiválok</a></li>
+		<% if(!belepve) { %>
+			<li><a class="nav-button" href="/login">Bejelentkezés</a></li>
+		<% }else { %>
+			<li><a class="nav-button" href="/logout">Kijelentkezes</a></li>
+		<%} %>
 	</ul>
 	<div class="line-burger">
 		<div class="line1"></div>

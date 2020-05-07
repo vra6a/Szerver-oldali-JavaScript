@@ -2,18 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	
 	<title>Festicket</title>
 	
 	<% if(typeof csstype!=='undefined' && csstype=="index"){ %>
 		<link rel="stylesheet" href="/source/css/index.css">
+		<link rel="stylesheet" href="/source/css/index_logged_in.css">
 	<% }else if(typeof csstype!=='undefined' && csstype=="login") { %>
 		<link rel="stylesheet" href="/source/css/login.css">
-	<% }else if(typeof csstype!=='undefined' && csstype=="index_admin") { %>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/source/css/index_logged_in.css">
 	<% }else if(typeof csstype!=='undefined' && csstype=="uj_fest") { %>
 		<link rel="stylesheet" href="/source/css/uj_fesztival.css">
-							
+	<% }else if(typeof csstype!=='undefined' && csstype=="jegyek") { %>
+		<link rel="stylesheet" href="/source/css/jegyek.css">
+		<link rel="stylesheet" href="/source/css/jegyek_logged_in.css">					
 	<% } %>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>

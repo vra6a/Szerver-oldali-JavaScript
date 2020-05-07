@@ -20,6 +20,9 @@ module.exports = function (app) {
     const objRepo = {FestivalModel: FestivalModel,
                         TicketModel: TicketModel};
 
+    app.use(
+        checkLoggedInMW())
+
     app.use('/festivals/new',
         authMW(objRepo),
         saveFestivalMW(objRepo),
@@ -45,13 +48,12 @@ module.exports = function (app) {
         deleteFestivalMW(objRepo));
 
     app.get('/tickets/:festivalid',
-        authMW(objRepo),
         (req, res, next) => {
             res.locals.festivalid = req.params.festivalid;
             return next();
         },
         getTicketsMW(objRepo),
-        renderMW(objRepo, 'jegyek_logged_in'));
+        renderMW(objRepo, 'jegyek'));
 
     app.use('/tickets/:festivalid/new',
         authMW(objRepo),
@@ -77,12 +79,16 @@ module.exports = function (app) {
         deleleteTicketMW(objRepo),
         renderMW(objRepo));
 
+    app.use('/logout',
+        logoutMW(objRepo));
+
     app.use('/login',
         checkPwMW(objRepo),
         renderMW(objRepo, 'login'));
 
     app.get('/',
-        checkLoggedInMW(),
         getFestivalsMW(objRepo),
         renderMW(objRepo, 'index'));
+
+    
 };

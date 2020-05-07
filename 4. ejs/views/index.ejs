@@ -1,5 +1,5 @@
 <%- include('header', csstype="index") -%>
-<%-include('navbar') -%>
+<%- include('navbar') -%>
 
 	<div class="landing-image">
 		<div class="hero-text">
@@ -47,7 +47,15 @@
 					<% }); %>
 				</table>
 			</div>
+
+			<% if(belepve) { %>
+				<form action="/festivals/new" method="post">
+					<div class="add-button"><button class="add-button" role="button">Új Fesztivál hozzáadása</button></div>
+				</form>
+			<% } %>
+
 		</section>
 	</section>
+	<script src="/source/js/index.js"></script>
 
 <%-include('footer') -%>
