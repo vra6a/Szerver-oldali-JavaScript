@@ -14,8 +14,10 @@ module.exports = function(objectrepository) {
         ) {
             return next();
         }
-
-        res.locals.festival = new FestivalModel();
+        if (typeof res.locals.festival === 'undefined') {
+            res.locals.festival = new FestivalModel();
+        }
+        
 
         res.locals.festival.nev = req.body.nev;
         res.locals.festival.datum = req.body.datum;

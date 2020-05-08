@@ -34,11 +34,9 @@
 								<% if(!belepve){ %>
 									<a class="goto-festival-button" href="/tickets/<%= festival._id %>">Megnézem</a>
 								<% } else{ %>
-									<div class="ticket-container" >
-										<div class="options"><a class="button" href="/festivals/edit/<%=festival._id %>"> <img src="/source/images/gear.png" height="30px" width="30px"></a></div>
-										<div class="delete"><a class="button" href="/festivals/delete/<%=festival._id %>"> <img src="/source/images/delete.png" height="30px" width="30px"></a></div>
-										<a class="goto-festival-button" href="/tickets/<%= festival._id %>">Megnézem</a>
-									</div>
+									<div class="options"><a class="button" href="/festivals/edit/<%=festival._id %>"> <img src="/source/images/gear.png" height="30px" width="30px"></a></div>
+									<div class="delete"><a class="button" href="/festivals/delete/<%=festival._id %>"> <img src="/source/images/delete.png" height="30px" width="30px"></a></div>
+									<a class="goto-festival-button" href="/tickets/<%= festival._id %>">Megnézem</a>
 								<% } %>
 								
 							</th >

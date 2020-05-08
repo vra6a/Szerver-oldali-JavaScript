@@ -4,7 +4,9 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
-    return function (req, res, next) {
-        next();
+    return async function (req, res, next) {
+        const TicketModel = requireOption(objectrepository, 'TicketModel');
+        res.locals.ticket = await TicketModel.findOne({_id: req.params.ticketid})
+        return next();
     };
 };

@@ -26,18 +26,18 @@
                         </th>
                         <th>
                             <% if(!belepve) { %>
-                                <div class="check"><a class="goto-festival-button" href="/festivals">Kosárba</a></div>
+                                <div class="check"><a class="goto-festival-button" href="/">Kosárba</a></div>
                             <% }else { %>
                                 <div class="options"><a href="/tickets/<%= ticket._id %>/edit"> <img src="/source/images/gear.png" height="30px" width="30px"></a></div>
                                 <div class="delete"><a href="/tickets/<%= ticket._id %>/delete"><img src="/source/images/delete.png" height="30px" width="30px"></a></div>
-                                <div class="check"><a class="goto-festival-button" href="/festivals">Kosárba</a></div>
+                                <div class="check"><a class="goto-festival-button" href="/">Kosárba</a></div>
                             <%} %>
                         </th >
                     </tr>
                     <% }); %>
                 </table>
             </div>
-            <% if(!belepve) { %>
+            <% if(belepve) { %>
                 <div class="add-button"><a  href="/tickets/<%= festivalid %>/new">Új Jegy hozzáadása</a></div>
             <%} %>
         </section>

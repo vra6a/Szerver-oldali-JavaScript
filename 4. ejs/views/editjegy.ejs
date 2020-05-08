@@ -1,0 +1,23 @@
+<%- include('header', csstype="uj_fest") -%>
+<%-include('logged_in_navbar') -%>
+
+    <section class="box">
+        <section class="wrapper">
+            <div class="cim">Jegy Módosítás</div>
+            <form method="post">
+                <div class="grid-container-inputs">
+                    <div class="name">tipus:</div>
+                    <div class="nameinput"><input type="text" name="name"></div>
+                    <div class="price">ar:</div>
+                    <div class="priceinput"><input type="number" name="price"></div>
+                    <div class="valid">érvényesség:</div>
+                    <div class="validinput"><input type="text" name="valid"></div>
+                </div>
+                <div class="grid-container-buttons">
+                    <div class="sign-in"><button class="button">Modosit</button></div>
+                    <div class="back"><button class="button" href="/tickets/<%= ticket._fest %>">Vissza</button></div>
+                </div>
+            </form>
+        </section>
+    </section>
+<%-include('footer') -%>

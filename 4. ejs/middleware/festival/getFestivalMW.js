@@ -6,14 +6,8 @@ const requireOption = require('../requireOption');
 module.exports = function (objectrepository) {
     const FestivalModel = requireOption(objectrepository, 'FestivalModel');
 
-    return function (req, res, next) {
-        FestivalModel.find({}, (err, festivals) =>{
-            if(err) {
-                return next(err);
-            }
-
-            res.locals.festivals = festivals;
-            return next();
-        });
+    return async function (req, res, next) {
+        res.locals.festival = await FestivalModel.findOne({ _id: req.params.festivalid})
+        return next();
     };
 };

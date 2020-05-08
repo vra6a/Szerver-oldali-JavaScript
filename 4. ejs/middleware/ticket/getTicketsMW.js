@@ -8,7 +8,6 @@ module.exports = function (objectrepository) {
         const TicketsModel = requireOption(objectrepository, 'TicketModel');
         const tickets = await TicketsModel.find({_fest: req.params.festivalid});
         res.locals.tickets = tickets;
-        console.log(tickets);
         return next();
     };
 };
